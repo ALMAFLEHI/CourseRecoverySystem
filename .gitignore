@@ -1,0 +1,28 @@
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+bin/
+build/
+
+# Java
+*.class
+*.log
+
+# Maven
+target/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tomcat / TomEE / server
+servers/
+server/
+work/
+temp/
+
+# Env / secrets
+.env
+*.properties

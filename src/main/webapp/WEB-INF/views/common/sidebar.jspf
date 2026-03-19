@@ -1,0 +1,61 @@
+<%
+    String sidebarRole = session.getAttribute("role") != null ? String.valueOf(session.getAttribute("role")) : "";
+    boolean sidebarIsAdmin = "COURSE_ADMIN".equalsIgnoreCase(sidebarRole);
+    boolean sidebarIsOfficer = "ACADEMIC_OFFICER".equalsIgnoreCase(sidebarRole);
+%>
+
+<div class="crs-sidebar">
+    <div class="crs-brand">
+        <div class="crs-logo">CRS</div>
+        <div class="crs-brand-text">
+            <div class="crs-brand-title">Course Recovery System</div>
+            <div class="crs-brand-subtitle">Academic Portal</div>
+        </div>
+    </div>
+
+    <div class="crs-user-box">
+        <div class="crs-user-name"><%= session.getAttribute("fullName") != null ? session.getAttribute("fullName") : "User" %></div>
+        <div class="crs-user-role"><%= sidebarRole %></div>
+    </div>
+
+    <div class="crs-nav-section">Main</div>
+    <nav class="crs-nav">
+        <a href="<%= request.getContextPath() %>/dashboard">Dashboard</a>
+        <a href="<%= request.getContextPath() %>/students">Students</a>
+        <a href="<%= request.getContextPath() %>/courses">Courses</a>
+        <a href="<%= request.getContextPath() %>/reports">Reports</a>
+    </nav>
+
+    <% if (sidebarIsAdmin) { %>
+        <div class="crs-nav-section">Administration</div>
+        <nav class="crs-nav">
+            <a href="<%= request.getContextPath() %>/users">User Management</a>
+            <a href="<%= request.getContextPath() %>/logs/email">Email Logs</a>
+            <a href="<%= request.getContextPath() %>/logs/audit">Audit Logs</a>
+        </nav>
+    <% } %>
+
+    <% if (sidebarIsOfficer) { %>
+        <div class="crs-nav-section">Academic Actions</div>
+        <nav class="crs-nav">
+            <a href="<%= request.getContextPath() %>/recovery/plans">Recovery Plans</a>
+            <a href="<%= request.getContextPath() %>/eligibility/check">Eligibility</a>
+            <a href="<%= request.getContextPath() %>/logs/email">Email Logs</a>
+            <a href="<%= request.getContextPath() %>/logs/audit">Audit Logs</a>
+        </nav>
+    <% } %>
+
+    <% if (!sidebarIsAdmin && !sidebarIsOfficer) { %>
+        <div class="crs-nav-section">System</div>
+        <nav class="crs-nav">
+            <a href="<%= request.getContextPath() %>/logs/email">Email Logs</a>
+            <a href="<%= request.getContextPath() %>/logs/audit">Audit Logs</a>
+        </nav>
+    <% } %>
+
+    <div class="crs-nav-section">Account</div>
+    <nav class="crs-nav">
+        <a href="<%= request.getContextPath() %>/account/change-password">Change Password</a>
+        <a href="<%= request.getContextPath() %>/logout">Logout</a>
+    </nav>
+</div>
