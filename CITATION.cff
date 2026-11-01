@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use or reference Course Recovery System, please cite this software."
+title: "Course Recovery System"
+type: software
+version: 1.0.0
+date-released: 2026-03-19
+authors:
+  - family-names: "Almaflehi"
+    given-names: "Mohammed Abdulsalam"
+repository-code: "https://github.com/ALMAFLEHI/CourseRecoverySystem"
+abstract: >-
+  Course Recovery System is a layered Jakarta Servlet and JSP web application
+  for academic eligibility evaluation, recovery planning, progress tracking,
+  reporting, user administration, and audit logging backed by MySQL.
+keywords:
+  - course recovery
+  - academic intervention
+  - java
+  - jakarta servlet
+  - jsp
+  - mysql
+  - role-based access control
